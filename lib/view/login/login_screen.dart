@@ -83,15 +83,18 @@ class _LoginScreenState extends State<LoginScreen> {
               RoundButton(title: "Login", onPress: () {
                 if(_emailController.text.isEmpty){
                   Utils.toastMessage("Please enter email");
+
                  
                 }else if(_passwordController.text.isEmpty){
                   Utils.toastMessage("Please enter password");
                 }else if(_passwordController.text.length<6){
                  Utils.toastMessage("Password length is less than 6");
                 }else{
+
                     print("Hi");
-                    viewModel.submitLoginDetails();   
-                    print("Api hit");              
+                    viewModel.submitLoginDetails(_emailController.text,_passwordController.text);   
+                    print("Api hit");    
+                              
                 }
               },)
             
